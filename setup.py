@@ -15,7 +15,7 @@ setup(
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=["pylint", "requests", "websocket-client==0.56"],
+    install_requires=["pylint", "requests","pandas","numpy","IPython","websocket-client==0.56"],
     keywords=['python', 'video', 'stream', 'video stream', 'camera stream', 'sockets'],
     classifiers=[
         "Development Status :: 1 - initialize",

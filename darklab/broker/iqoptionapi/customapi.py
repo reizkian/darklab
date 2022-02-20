@@ -1,4 +1,8 @@
 import time
+import numpy as np
+import pandas as pd
+from datetime import datetime
+from IPython.display import clear_output 
 from darklab.broker.iqoptionapi.stableapi import IQ_Option
 
 class IQOPTION_API:
@@ -22,7 +26,7 @@ class IQOPTION_API:
     def connect(self):
         self.stableapi_iq=IQ_Option(self.email,self.password,active_account_type=self.mode)
         check, reason = self.stableapi_iq.connect()#connect to iqoption
-        self.CLIENT_TIME = time.time()
+        self.get_server_time()
         if check:
             print(f'connected to iqoption {self.email} {self.mode}')
             self.get_latency()
@@ -33,6 +37,7 @@ class IQOPTION_API:
         self.SERVER_TIME = self.stableapi_iq.get_server_timestamp()
 
     def get_latency(self):
+        self.CLIENT_TIME = time.time()
         self.LATENCY = int((self.CLIENT_TIME-self.SERVER_TIME)*1000)
 
     def account_check_balance(self):
