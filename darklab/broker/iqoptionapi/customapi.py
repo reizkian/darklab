@@ -6,10 +6,13 @@ class IQOPTION_API:
         self.email    = email
         self.password = password
         self.mode     = mode
+
+        self.SERVER_TIME = 0
+        self.CLIENT_TIME = 0
+        self.LATENCY     = 0
+        
         # UNINITIALIEZED CLASS VARIABLE
         # self.stable_api
-        # self.CLIENT_TIME
-        # self.LATENCY
         # self.account_balance
         # self.asset
         # self.time_zone 
