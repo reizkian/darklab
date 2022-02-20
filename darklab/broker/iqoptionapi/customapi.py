@@ -108,10 +108,10 @@ class IQOPTION_API:
         self.time_start = str(np.array(df_responddata.index[0:])[0])
         self.time_stop  = str(np.array(df_responddata.index[-1:])[0])
         # log dataframe info
-        # print(f'{self.asset} time_zone utc{self.time_zone} time_resolution {self.time_resolution}s')
-        # print('------------------------------------')
-        # df_responddata.info()
-        self.print_candle_metadata()
+        print(f'{self.asset} time_zone utc{self.time_zone} time_resolution {self.time_resolution}s')
+        print('------------------------------------')
+        df_responddata.info()
+        #self.print_candle_metadata()
         return df_responddata
 
     # --------------------------------------------------------------------------------------
