@@ -1,16 +1,16 @@
 # python
-from iqoptionapi.api import IQOptionAPI
-import iqoptionapi.constants as OP_code
-import iqoptionapi.country_id as Country
+from darklab.broker.iqoptionapi.api import IQOptionAPI
+import darklab.broker.iqoptionapi.constants as OP_code
+import darklab.broker.iqoptionapi.country_id as Country
 import threading
 import time
 import json
 import logging
 import operator
-import iqoptionapi.global_value as global_value
+import darklab.broker.iqoptionapi.global_value as global_value
 from collections import defaultdict
 from collections import deque
-from iqoptionapi.expiration import get_expiration_time, get_remaning_time
+from darklab.broker.iqoptionapi.expiration import get_expiration_time, get_remaning_time
 from datetime import datetime, timedelta
 from random import randint
 

@@ -1,5 +1,5 @@
  
-from iqoptionapi.ws.chanels.base import Base
+from darklab.broker.iqoptionapi.ws.chanels.base import Base
 import time
 """
 {"name":"sendMessage","request_id":"356","msg":{"name":"request-leaderboard-deals-client","version":"1.0","body":{"country_id":0,"user_country_id":191,"from_position":1,"to_position":64,"near_traders_country_count":64,"near_traders_count":64,"top_country_count":64,"top_count":64,"top_type":2}}}

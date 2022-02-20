@@ -2,8 +2,8 @@
 
 import datetime
 import time
-from iqoptionapi.ws.chanels.base import Base
-import iqoptionapi.global_value as global_value
+from darklab.broker.iqoptionapi.ws.chanels.base import Base
+import darklab.broker.iqoptionapi.global_value as global_value
 from random import randint
 # work for forex digit cfd(stock)
 

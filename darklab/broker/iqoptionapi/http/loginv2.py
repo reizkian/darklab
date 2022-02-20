@@ -1,6 +1,6 @@
 """Module for IQ Option http loginv2 resource."""
 
-from iqoptionapi.http.login import Login
+from darklab.broker.iqoptionapi.http.login import Login
 
 
 class Loginv2(Login):

@@ -1,6 +1,6 @@
 """Module for IQ Option Candles websocket object."""
 
-from iqoptionapi.ws.objects.base import Base
+from darklab.broker.iqoptionapi.ws.objects.base import Base
 
 
 class Candle(object):
@@ -90,7 +90,7 @@ class Candles(Base):
         """Method to get first candle.
 
         :returns: The instance of :class:`Candle
-            <iqoptionapi.ws.objects.candles.Candle>`.
+            <darklab.broker.iqoptionapi.ws.objects.candles.Candle>`.
         """
         return Candle(self.candles_data[0])
 
@@ -99,7 +99,7 @@ class Candles(Base):
         """Method to get second candle.
 
         :returns: The instance of :class:`Candle
-            <iqoptionapi.ws.objects.candles.Candle>`.
+            <darklab.broker.iqoptionapi.ws.objects.candles.Candle>`.
         """
         return Candle(self.candles_data[1])
 
@@ -108,6 +108,6 @@ class Candles(Base):
         """Method to get current candle.
 
         :returns: The instance of :class:`Candle
-            <iqoptionapi.ws.objects.candles.Candle>`.
+            <darklab.broker.iqoptionapi.ws.objects.candles.Candle>`.
         """
         return Candle(self.candles_data[-1])

@@ -1,5 +1,5 @@
 import datetime
-from iqoptionapi.ws.chanels.base import Base
+from darklab.broker.iqoptionapi.ws.chanels.base import Base
 class Heartbeat(Base):
     name = "heartbeat"
     

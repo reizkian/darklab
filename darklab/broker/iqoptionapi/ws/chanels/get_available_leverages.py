@@ -1,6 +1,6 @@
 import datetime
 import time
-from iqoptionapi.ws.chanels.base import Base
+from darklab.broker.iqoptionapi.ws.chanels.base import Base
 
 
 class Get_available_leverages(Base):

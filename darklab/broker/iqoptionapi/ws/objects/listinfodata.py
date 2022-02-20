@@ -1,7 +1,7 @@
 """Module for IQ Option Candles websocket object."""
 from collections import OrderedDict
 
-from iqoptionapi.ws.objects.base import Base
+from darklab.broker.iqoptionapi.ws.objects.base import Base
 
 class ListInfoData(Base):
     """Class for IQ Option Candles websocket object."""

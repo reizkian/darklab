@@ -8,7 +8,7 @@ class Base(object):
     def __init__(self, api):
         """
         :param api: The instance of :class:`IQOptionAPI
-            <iqoptionapi.api.IQOptionAPI>`.
+            <darklab.broker.iqoptionapi.api.IQOptionAPI>`.
         """
         self.api = api
 

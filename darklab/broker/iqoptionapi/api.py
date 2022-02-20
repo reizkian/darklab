@@ -8,65 +8,65 @@ import requests
 import ssl
 import atexit
 from collections import deque
-from iqoptionapi.http.login import Login
-from iqoptionapi.http.loginv2 import Loginv2
-from iqoptionapi.http.logout import Logout
-from iqoptionapi.http.login2fa import Login2FA
-from iqoptionapi.http.send_sms import SMS_Sender
-from iqoptionapi.http.verify import Verify
-from iqoptionapi.http.getprofile import Getprofile
-from iqoptionapi.http.auth import Auth
-from iqoptionapi.http.token import Token
-from iqoptionapi.http.appinit import Appinit
-from iqoptionapi.http.billing import Billing
-from iqoptionapi.http.buyback import Buyback
-from iqoptionapi.http.changebalance import Changebalance
-from iqoptionapi.http.events import Events
-from iqoptionapi.ws.client import WebsocketClient
-from iqoptionapi.ws.chanels.get_balances import *
+from darklab.broker.iqoptionapi.http.login import Login
+from darklab.broker.iqoptionapi.http.loginv2 import Loginv2
+from darklab.broker.iqoptionapi.http.logout import Logout
+from darklab.broker.iqoptionapi.http.login2fa import Login2FA
+from darklab.broker.iqoptionapi.http.send_sms import SMS_Sender
+from darklab.broker.iqoptionapi.http.verify import Verify
+from darklab.broker.iqoptionapi.http.getprofile import Getprofile
+from darklab.broker.iqoptionapi.http.auth import Auth
+from darklab.broker.iqoptionapi.http.token import Token
+from darklab.broker.iqoptionapi.http.appinit import Appinit
+from darklab.broker.iqoptionapi.http.billing import Billing
+from darklab.broker.iqoptionapi.http.buyback import Buyback
+from darklab.broker.iqoptionapi.http.changebalance import Changebalance
+from darklab.broker.iqoptionapi.http.events import Events
+from darklab.broker.iqoptionapi.ws.client import WebsocketClient
+from darklab.broker.iqoptionapi.ws.chanels.get_balances import *
 
-from iqoptionapi.ws.chanels.ssid import Ssid
-from iqoptionapi.ws.chanels.subscribe import *
-from iqoptionapi.ws.chanels.unsubscribe import *
-from iqoptionapi.ws.chanels.setactives import SetActives
-from iqoptionapi.ws.chanels.candles import GetCandles
-from iqoptionapi.ws.chanels.buyv2 import Buyv2
-from iqoptionapi.ws.chanels.buyv3 import *
-from iqoptionapi.ws.chanels.user import *
-from iqoptionapi.ws.chanels.api_game_betinfo import Game_betinfo
-from iqoptionapi.ws.chanels.instruments import Get_instruments
-from iqoptionapi.ws.chanels.get_financial_information import GetFinancialInformation
-from iqoptionapi.ws.chanels.strike_list import Strike_list
-from iqoptionapi.ws.chanels.leaderboard import Leader_Board
+from darklab.broker.iqoptionapi.ws.chanels.ssid import Ssid
+from darklab.broker.iqoptionapi.ws.chanels.subscribe import *
+from darklab.broker.iqoptionapi.ws.chanels.unsubscribe import *
+from darklab.broker.iqoptionapi.ws.chanels.setactives import SetActives
+from darklab.broker.iqoptionapi.ws.chanels.candles import GetCandles
+from darklab.broker.iqoptionapi.ws.chanels.buyv2 import Buyv2
+from darklab.broker.iqoptionapi.ws.chanels.buyv3 import *
+from darklab.broker.iqoptionapi.ws.chanels.user import *
+from darklab.broker.iqoptionapi.ws.chanels.api_game_betinfo import Game_betinfo
+from darklab.broker.iqoptionapi.ws.chanels.instruments import Get_instruments
+from darklab.broker.iqoptionapi.ws.chanels.get_financial_information import GetFinancialInformation
+from darklab.broker.iqoptionapi.ws.chanels.strike_list import Strike_list
+from darklab.broker.iqoptionapi.ws.chanels.leaderboard import Leader_Board
 
-from iqoptionapi.ws.chanels.traders_mood import Traders_mood_subscribe
-from iqoptionapi.ws.chanels.traders_mood import Traders_mood_unsubscribe
-from iqoptionapi.ws.chanels.technical_indicators import Technical_indicators
-from iqoptionapi.ws.chanels.buy_place_order_temp import Buy_place_order_temp
-from iqoptionapi.ws.chanels.get_order import Get_order
-from iqoptionapi.ws.chanels.get_deferred_orders import GetDeferredOrders
-from iqoptionapi.ws.chanels.get_positions import *
+from darklab.broker.iqoptionapi.ws.chanels.traders_mood import Traders_mood_subscribe
+from darklab.broker.iqoptionapi.ws.chanels.traders_mood import Traders_mood_unsubscribe
+from darklab.broker.iqoptionapi.ws.chanels.technical_indicators import Technical_indicators
+from darklab.broker.iqoptionapi.ws.chanels.buy_place_order_temp import Buy_place_order_temp
+from darklab.broker.iqoptionapi.ws.chanels.get_order import Get_order
+from darklab.broker.iqoptionapi.ws.chanels.get_deferred_orders import GetDeferredOrders
+from darklab.broker.iqoptionapi.ws.chanels.get_positions import *
 
-from iqoptionapi.ws.chanels.get_available_leverages import Get_available_leverages
-from iqoptionapi.ws.chanels.cancel_order import Cancel_order
-from iqoptionapi.ws.chanels.close_position import Close_position
-from iqoptionapi.ws.chanels.get_overnight_fee import Get_overnight_fee
-from iqoptionapi.ws.chanels.heartbeat import Heartbeat
+from darklab.broker.iqoptionapi.ws.chanels.get_available_leverages import Get_available_leverages
+from darklab.broker.iqoptionapi.ws.chanels.cancel_order import Cancel_order
+from darklab.broker.iqoptionapi.ws.chanels.close_position import Close_position
+from darklab.broker.iqoptionapi.ws.chanels.get_overnight_fee import Get_overnight_fee
+from darklab.broker.iqoptionapi.ws.chanels.heartbeat import Heartbeat
 
 
-from iqoptionapi.ws.chanels.digital_option import *
-from iqoptionapi.ws.chanels.api_game_getoptions import *
-from iqoptionapi.ws.chanels.sell_option import Sell_Option
-from iqoptionapi.ws.chanels.sell_digital_option import Sell_Digital_Option
-from iqoptionapi.ws.chanels.change_tpsl import Change_Tpsl
-from iqoptionapi.ws.chanels.change_auto_margin_call import ChangeAutoMarginCall
+from darklab.broker.iqoptionapi.ws.chanels.digital_option import *
+from darklab.broker.iqoptionapi.ws.chanels.api_game_getoptions import *
+from darklab.broker.iqoptionapi.ws.chanels.sell_option import Sell_Option
+from darklab.broker.iqoptionapi.ws.chanels.sell_digital_option import Sell_Digital_Option
+from darklab.broker.iqoptionapi.ws.chanels.change_tpsl import Change_Tpsl
+from darklab.broker.iqoptionapi.ws.chanels.change_auto_margin_call import ChangeAutoMarginCall
 
-from iqoptionapi.ws.objects.timesync import TimeSync
-from iqoptionapi.ws.objects.profile import Profile
-from iqoptionapi.ws.objects.candles import Candles
-from iqoptionapi.ws.objects.listinfodata import ListInfoData
-from iqoptionapi.ws.objects.betinfo import Game_betinfo_data
-import iqoptionapi.global_value as global_value
+from darklab.broker.iqoptionapi.ws.objects.timesync import TimeSync
+from darklab.broker.iqoptionapi.ws.objects.profile import Profile
+from darklab.broker.iqoptionapi.ws.objects.candles import Candles
+from darklab.broker.iqoptionapi.ws.objects.listinfodata import ListInfoData
+from darklab.broker.iqoptionapi.ws.objects.betinfo import Game_betinfo_data
+import darklab.broker.iqoptionapi.global_value as global_value
 from collections import defaultdict
 
 
@@ -183,7 +183,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Construct http url from resource url.
 
         :param resource: The instance of
-            :class:`Resource <iqoptionapi.http.resource.Resource>`.
+            :class:`Resource <darklab.broker.iqoptionapi.http.resource.Resource>`.
 
         :returns: The full url to IQ Option http resource.
         """
@@ -193,7 +193,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Send http request to IQ Option server.
 
         :param resource: The instance of
-            :class:`Resource <iqoptionapi.http.resource.Resource>`.
+            :class:`Resource <darklab.broker.iqoptionapi.http.resource.Resource>`.
         :param str method: The http request method.
         :param dict data: (optional) The http request data.
         :param dict params: (optional) The http request params.
@@ -224,7 +224,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Send http request to IQ Option server.
 
         :param resource: The instance of
-            :class:`Resource <iqoptionapi.http.resource.Resource>`.
+            :class:`Resource <darklab.broker.iqoptionapi.http.resource.Resource>`.
         :param str method: The http request method.
         :param dict data: (optional) The http request data.
         :param dict params: (optional) The http request params.
@@ -283,7 +283,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http login resource.
 
         :returns: The instance of :class:`Login
-            <iqoptionapi.http.login.Login>`.
+            <darklab.broker.iqoptionapi.http.login.Login>`.
         """
         return Logout(self)
 
@@ -292,7 +292,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http login resource.
 
         :returns: The instance of :class:`Login
-            <iqoptionapi.http.login.Login>`.
+            <darklab.broker.iqoptionapi.http.login.Login>`.
         """
         return Login(self)
 
@@ -301,7 +301,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http login 2FA resource.
 
         :returns: The instance of :class:`Login2FA
-            <iqoptionapi.http.login2fa.Login2FA>`.
+            <darklab.broker.iqoptionapi.http.login2fa.Login2FA>`.
         """
         return Login2FA(self)
 
@@ -310,7 +310,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http send sms code resource.
 
         :returns: The instance of :class:`SMS_Sender
-            <iqoptionapi.http.send_sms.SMS_Sender>`.
+            <darklab.broker.iqoptionapi.http.send_sms.SMS_Sender>`.
         """
         return SMS_Sender(self)
 
@@ -319,7 +319,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http verify 2fa resource.
 
         :returns: The instance of :class:`Verify
-            <iqoptionapi.http.verify.Verify>`.
+            <darklab.broker.iqoptionapi.http.verify.Verify>`.
         """
         return Verify(self)
 
@@ -328,7 +328,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http loginv2 resource.
 
         :returns: The instance of :class:`Loginv2
-            <iqoptionapi.http.loginv2.Loginv2>`.
+            <darklab.broker.iqoptionapi.http.loginv2.Loginv2>`.
         """
         return Loginv2(self)
 
@@ -337,7 +337,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http auth resource.
 
         :returns: The instance of :class:`Auth
-            <iqoptionapi.http.auth.Auth>`.
+            <darklab.broker.iqoptionapi.http.auth.Auth>`.
         """
         return Auth(self)
 
@@ -346,7 +346,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http appinit resource.
 
         :returns: The instance of :class:`Appinit
-            <iqoptionapi.http.appinit.Appinit>`.
+            <darklab.broker.iqoptionapi.http.appinit.Appinit>`.
         """
         return Appinit(self)
 
@@ -355,7 +355,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http token resource.
 
         :returns: The instance of :class:`Token
-            <iqoptionapi.http.auth.Token>`.
+            <darklab.broker.iqoptionapi.http.auth.Token>`.
         """
         return Token(self)
 
@@ -364,7 +364,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
     #     """Property for get IQ Option http profile resource.
 
     #     :returns: The instance of :class:`Profile
-    #         <iqoptionapi.http.profile.Profile>`.
+    #         <darklab.broker.iqoptionapi.http.profile.Profile>`.
     #     """
     #     return Profile(self)
     def reset_training_balance(self):
@@ -379,7 +379,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http changebalance resource.
 
         :returns: The instance of :class:`Changebalance
-            <iqoptionapi.http.changebalance.Changebalance>`.
+            <darklab.broker.iqoptionapi.http.changebalance.Changebalance>`.
         """
         return Changebalance(self)
 
@@ -392,7 +392,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http billing resource.
 
         :returns: The instance of :class:`Billing
-            <iqoptionapi.http.billing.Billing>`.
+            <darklab.broker.iqoptionapi.http.billing.Billing>`.
         """
         return Billing(self)
 
@@ -401,7 +401,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http buyback resource.
 
         :returns: The instance of :class:`Buyback
-            <iqoptionapi.http.buyback.Buyback>`.
+            <darklab.broker.iqoptionapi.http.buyback.Buyback>`.
         """
         return Buyback(self)
 # ------------------------------------------------------------------------
@@ -411,7 +411,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http getprofile resource.
 
         :returns: The instance of :class:`Login
-            <iqoptionapi.http.getprofile.Getprofile>`.
+            <darklab.broker.iqoptionapi.http.getprofile.Getprofile>`.
         """
         return Getprofile(self)
 # for active code ...
@@ -421,7 +421,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option http getprofile resource.
 
         :returns: The instance of :class:`Login
-            <iqoptionapi.http.getprofile.Getprofile>`.
+            <darklab.broker.iqoptionapi.http.getprofile.Getprofile>`.
         """
         return Get_Balances(self)
 
@@ -439,7 +439,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option websocket ssid chanel.
 
         :returns: The instance of :class:`Ssid
-            <iqoptionapi.ws.chanels.ssid.Ssid>`.
+            <darklab.broker.iqoptionapi.ws.chanels.ssid.Ssid>`.
         """
         return Ssid(self)
 # --------------------------------------------------------------------------------
@@ -478,7 +478,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option websocket subscribe chanel.
 
         :returns: The instance of :class:`Subscribe
-            <iqoptionapi.ws.chanels.subscribe.Subscribe>`.
+            <darklab.broker.iqoptionapi.ws.chanels.subscribe.Subscribe>`.
         """
         return Subscribe(self)
 
@@ -491,7 +491,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option websocket unsubscribe chanel.
 
         :returns: The instance of :class:`Unsubscribe
-            <iqoptionapi.ws.chanels.unsubscribe.Unsubscribe>`.
+            <darklab.broker.iqoptionapi.ws.chanels.unsubscribe.Unsubscribe>`.
         """
         return Unsubscribe(self)
 
@@ -603,7 +603,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option websocket setactives chanel.
 
         :returns: The instance of :class:`SetActives
-            <iqoptionapi.ws.chanels.setactives.SetActives>`.
+            <darklab.broker.iqoptionapi.ws.chanels.setactives.SetActives>`.
         """
         return SetActives(self)
 
@@ -616,7 +616,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option websocket candles chanel.
 
         :returns: The instance of :class:`GetCandles
-            <iqoptionapi.ws.chanels.candles.GetCandles>`.
+            <darklab.broker.iqoptionapi.ws.chanels.candles.GetCandles>`.
         """
         return GetCandles(self)
 
@@ -659,7 +659,7 @@ class IQOptionAPI(object):  # pylint: disable=too-many-instance-attributes
         """Property for get IQ Option websocket buyv2 request.
 
         :returns: The instance of :class:`Buyv2
-            <iqoptionapi.ws.chanels.buyv2.Buyv2>`.
+            <darklab.broker.iqoptionapi.ws.chanels.buyv2.Buyv2>`.
         """
         self.buy_successful = None
         return Buyv2(self)

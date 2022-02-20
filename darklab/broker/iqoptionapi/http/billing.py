@@ -1,6 +1,6 @@
 """Module for IQ option billing resource."""
 
-from iqoptionapi.http.resource import Resource
+from darklab.broker.iqoptionapi.http.resource import Resource
 
 
 class Billing(Resource):

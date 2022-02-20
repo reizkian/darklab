@@ -1,6 +1,6 @@
 """Module for IQ option candles websocket chanel."""
 
-from iqoptionapi.ws.chanels.base import Base
+from darklab.broker.iqoptionapi.ws.chanels.base import Base
 import time
 
 class GetCandles(Base):

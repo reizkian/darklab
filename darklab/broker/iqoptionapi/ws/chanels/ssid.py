@@ -1,6 +1,6 @@
 """Module for IQ option API ssid websocket chanel."""
 
-from iqoptionapi.ws.chanels.base import Base
+from darklab.broker.iqoptionapi.ws.chanels.base import Base
 
 
 class Ssid(Base):

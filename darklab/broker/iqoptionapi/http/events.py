@@ -1,6 +1,6 @@
 """Module for IQ Option http login resource."""
 
-from iqoptionapi.http.resource import Resource
+from darklab.broker.iqoptionapi.http.resource import Resource
 
 
 class Events(Resource):

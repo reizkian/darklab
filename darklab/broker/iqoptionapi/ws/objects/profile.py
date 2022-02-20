@@ -1,5 +1,5 @@
 """Module for IQ Option Profile websocket object."""
-from iqoptionapi.ws.objects.base import Base
+from darklab.broker.iqoptionapi.ws.objects.base import Base
 
 
 class Profile(Base):

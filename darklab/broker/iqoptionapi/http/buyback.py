@@ -1,7 +1,7 @@
 """Module for IQ option buyback resource."""
 
-from iqoptionapi.http.resource import Resource
-from iqoptionapi.http.billing import Billing
+from darklab.broker.iqoptionapi.http.resource import Resource
+from darklab.broker.iqoptionapi.http.billing import Billing
 
 
 class Buyback(Resource):

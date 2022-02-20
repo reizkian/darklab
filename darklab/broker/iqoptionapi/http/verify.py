@@ -1,6 +1,6 @@
 """Module for IQ Option http verify resource."""
 
-from iqoptionapi.http.resource import Resource
+from darklab.broker.iqoptionapi.http.resource import Resource
 import json
 
 

@@ -1,6 +1,6 @@
 """Module for IQ Option http getprofile resource."""
 
-from iqoptionapi.http.resource import Resource
+from darklab.broker.iqoptionapi.http.resource import Resource
 
 
 class Getprofile(Resource):

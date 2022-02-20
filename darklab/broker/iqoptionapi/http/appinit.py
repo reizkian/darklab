@@ -1,6 +1,6 @@
 """Module for IQ option appinit http resource."""
 
-from iqoptionapi.http.resource import Resource
+from darklab.broker.iqoptionapi.http.resource import Resource
 
 
 class Appinit(Resource):

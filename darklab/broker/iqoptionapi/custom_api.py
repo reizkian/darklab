@@ -1,14 +1,14 @@
-from iqoptionapi.stable_api import IQ_Option
+from darklab.broker.iqoptionapi.stable_api import IQ_Option
 
-class IqoptionAPI:
+class IQ:
     def __init__(self, email, password, mode):
         self.email    = email
         self.password = password
         self.mode     = mode
     
     def connect(self):
-        self.iq=IQ_Option(self.email,self.password,active_account_type=self.mode)
-        check, reason=self.Iq.connect()#connect to iqoption
+        self.stableapi_iq=IQ_Option(self.email,self.password,active_account_type=self.mode)
+        check, reason=self.stableapi_iq.connect()#connect to iqoption
         self.CLIENT_TIME = time.time()
         if check:
             print(f'connected to iqoption {self.email} {self.mode}')

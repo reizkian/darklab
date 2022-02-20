@@ -3,7 +3,7 @@
 import time
 import datetime
 
-from iqoptionapi.ws.objects.base import Base
+from darklab.broker.iqoptionapi.ws.objects.base import Base
 
 
 class TimeSync(Base):

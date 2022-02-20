@@ -3,8 +3,8 @@
 import json
 import logging
 import websocket
-import iqoptionapi.constants as OP_code
-import iqoptionapi.global_value as global_value
+import darklab.broker.iqoptionapi.constants as OP_code
+import darklab.broker.iqoptionapi.global_value as global_value
 from threading import Thread
 
 
@@ -14,7 +14,7 @@ class WebsocketClient(object):
     def __init__(self, api):
         """
         :param api: The instance of :class:`IQOptionAPI
-            <iqoptionapi.api.IQOptionAPI>`.
+            <darklab.broker.iqoptionapi.api.IQOptionAPI>`.
         """
         self.api = api
         self.wss = websocket.WebSocketApp(
