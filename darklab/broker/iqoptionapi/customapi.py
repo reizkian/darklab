@@ -10,7 +10,7 @@ class IQOPTION_API:
         self.SERVER_TIME = 0
         self.CLIENT_TIME = 0
         self.LATENCY     = 0
-        
+
         # UNINITIALIEZED CLASS VARIABLE
         # self.stable_api
         # self.account_balance
@@ -23,7 +23,6 @@ class IQOPTION_API:
         self.stableapi_iq=IQ_Option(self.email,self.password,active_account_type=self.mode)
         check, reason = self.stableapi_iq.connect()#connect to iqoption
         self.CLIENT_TIME = time.time()
-        self.get_server_time()
         if check:
             print(f'connected to iqoption {self.email} {self.mode}')
             self.get_latency()
@@ -38,7 +37,7 @@ class IQOPTION_API:
 
     def account_check_balance(self):
         mode = self.stableapi_iq.get_balance_mode()
-        self.account_balance = self.Iq.get_balance()
+        self.account_balance = self.stableapi_iq.get_balance()
         # print(f'{self.email} {mode} {self.account_balance}$')
 
     def get_candles_historicaldata(self, asset, time_zone, time_resolution, count_candles, **kwargs):
@@ -68,7 +67,7 @@ class IQOPTION_API:
         REQUEST_BATCH = self.separate1e3(count_candles)
         # request data to iqoption
         for eachBatch in REQUEST_BATCH:
-            eachRespond = self.Iq.get_candles(asset, time_resolution, eachBatch, time_now)
+            eachRespond = self.stableapi_iq.get_candles(asset, time_resolution, eachBatch, time_now)
             RESPOND = eachRespond+RESPOND
             time_now = int(eachRespond[0]["from"])-1       
 
@@ -98,12 +97,13 @@ class IQOPTION_API:
         df_responddata = df_responddata[['id','time_stamp','time_unix','open','close','min','max','volume']]
         df_responddata.set_index('time_stamp', inplace=True)
 
+        self.CLIENT_TIME = time.time()
+        self.get_latency()
         # set meta data info
         self.time_start = str(np.array(df_responddata.index[0:])[0])
         self.time_stop  = str(np.array(df_responddata.index[-1:])[0])
         # log dataframe info
         # print(f'{self.asset} time_zone utc{self.time_zone} time_resolution {self.time_resolution}s')
-        # self.print_latency()
         # print('------------------------------------')
         # df_responddata.info()
         self.print_candle_metadata()
