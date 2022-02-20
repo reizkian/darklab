@@ -121,7 +121,7 @@ class IQOPTION_API:
         '''
         batch = []
         for i in range(n//1000):
-        batch.append(1000)
+            batch.append(1000)
         if n%1000 != 0:
-        batch.append(n%1000)
+            batch.append(n%1000)
         return batch
