@@ -22,6 +22,7 @@ class IQOPTION_API:
         self.CLIENT_TIME = time.time()
         if check:
             print(f'connected to iqoption {self.email} {self.mode}')
+            self.get_server_time()
             self.print_latency()
         else:
             print('failed to connect ', reason)
