@@ -20,25 +20,23 @@ class IQOPTION_API:
         self.stableapi_iq=IQ_Option(self.email,self.password,active_account_type=self.mode)
         check, reason = self.stableapi_iq.connect()#connect to iqoption
         self.CLIENT_TIME = time.time()
+        self.get_server_time()
         if check:
             print(f'connected to iqoption {self.email} {self.mode}')
-            self.get_server_time()
-            self.print_latency()
+            self.get_latency()
         else:
             print('failed to connect ', reason)
 
     def get_server_time(self):
         self.SERVER_TIME = self.stableapi_iq.get_server_timestamp()
 
+    def get_latency(self):
+        self.LATENCY = int((self.CLIENT_TIME-self.SERVER_TIME)*1000)
+
     def account_check_balance(self):
         mode = self.stableapi_iq.get_balance_mode()
         self.account_balance = self.Iq.get_balance()
         # print(f'{self.email} {mode} {self.account_balance}$')
-
-    def print_latency(self):
-        self.LATENCY= int((self.CLIENT_TIME-self.SERVER_TIME)*1000)
-        print(f'latency {self.LATENCY} ms')
-
 
     def get_candles_historicaldata(self, asset, time_zone, time_resolution, count_candles, **kwargs):
         '''
