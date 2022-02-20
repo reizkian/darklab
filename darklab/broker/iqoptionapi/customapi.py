@@ -1,4 +1,4 @@
-from darklab.broker.iqoptionapi.stable_api import IQ_Option
+from darklab.broker.iqoptionapi.stableapi import IQ_Option
 
 class IQ:
     def __init__(self, email, password, mode):
