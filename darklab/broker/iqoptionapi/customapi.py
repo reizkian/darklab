@@ -41,6 +41,7 @@ class IQOPTION_API:
         self.LATENCY = int((self.CLIENT_TIME-self.SERVER_TIME)*1000)
 
     def account_check_balance(self):
+        self.get_server_time()
         mode = self.stableapi_iq.get_balance_mode()
         self.account_balance = self.stableapi_iq.get_balance()
         # print(f'{self.email} {mode} {self.account_balance}$')
@@ -122,6 +123,7 @@ class IQOPTION_API:
             [3] action#sting, "call" or "put" to buy and sell option
             [4] expirations#int, input minute, careful too large will false to buy (closed market time)
         '''
+        self.get_server_time()
         self.stableapi_iq.buy(amount, asset, action, expirations)
 
     # --------------------------------------------------------------------------------------
