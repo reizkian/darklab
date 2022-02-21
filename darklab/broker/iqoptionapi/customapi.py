@@ -114,6 +114,16 @@ class IQOPTION_API:
         #self.print_candle_metadata()
         return df_responddata
 
+    def buy(self, amount, asset, action, expirations):
+        '''
+        PARAM:
+            [1] amount#int, the amount of money to buy option
+            [2] asset#string, name of the asset ('EURUSD', 'GBPUSD', etc)
+            [3] action#sting, "call" or "put" to buy and sell option
+            [4] expirations#int, input minute, careful too large will false to buy (closed market time)
+        '''
+        self.stableapi_iq.buy(amount, asset, action, expirations)
+
     # --------------------------------------------------------------------------------------
     # UTILITY FUNCTION
     # --------------------------------------------------------------------------------------
